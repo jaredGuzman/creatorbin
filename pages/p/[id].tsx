@@ -3,11 +3,12 @@ import { GetServerSideProps } from "next";
 import ReactMarkdown from "react-markdown";
 import Layout from "../../components/Layout";
 import Router from "next/router";
-import { ProjectProps } from "../../components/Project";
+import { ProjectProps } from "../../interfaces/Project";
+import { ProjectUserWithRoleAndUser } from "../../interfaces/Project";
+
 import prisma from "../../lib/prisma";
 import { useSession } from "next-auth/react";
 
-import { ProjectUserWithRoleAndUser } from "../../components/Project";
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const project = await prisma.project.findUnique({
